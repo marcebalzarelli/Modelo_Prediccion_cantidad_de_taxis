@@ -100,16 +100,16 @@ if st.button('Realizar Predicción'):# Realizo predicción
 st.write('Este modelo utiliza Random Forest para hacer predicciones. Los datos de entrada incluyen la temperatura promedio, el día de la semana y el tipo de taxi. Los datos ingresados serán guardados en nuestra base de datos para continuar entrenando el modelo.')
 
 #Cargo CSV
-url_csv = 'https://github.com/marcebalzarelli/Modelo_Prediccion_cantidad_de_taxis/blob/main/ruta/al/tabla_combinada.csv?raw=true'
+#url_csv = 'https://github.com/marcebalzarelli/Modelo_Prediccion_cantidad_de_taxis/blob/main/ruta/al/tabla_combinada.csv?raw=true'
 
-try:
-    df = pd.read_csv(url_csv)
-except urllib.error.HTTPError as e:
-    print(f"Error al cargar los datos: {e}")
+#try:
+  #  df = pd.read_csv(url_csv)
+#except urllib.error.HTTPError as e:
+   # print(f"Error al cargar los datos: {e}")
 
 # Cargo el archivo
-#archivo_csv = r'E:\000-USUARIOS\Pablo\Documentos\Documentos\Marce\Data y Machine Learning\HENRY\Proy. Final\Datasets_limpios\tabla_combinada.csv'  # Reemplaza 'tu_archivo.csv' con la ruta de tu archivo CSV
-#df = pd.read_csv(archivo_csv)
+archivo_csv = r'E:\000-USUARIOS\Pablo\Documentos\Documentos\Marce\Data y Machine Learning\HENRY\Proy. Final\Datasets_limpios\tabla_combinada.csv'  # Reemplaza 'tu_archivo.csv' con la ruta de tu archivo CSV
+df = pd.read_csv(archivo_csv)
 
 viajes_por_dia_semana = df.groupby('DiaSemana')['Viajes_por_dia'].sum().reset_index()# Agrupo los datos por día de la semana y sumo los viajes
 
