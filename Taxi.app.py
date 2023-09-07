@@ -187,7 +187,7 @@ def contaminacion_sonora(borough):
     except Exception as e:
         return {'error': f'Error al obtener datos de contaminación sonora'}
     
-# Ahora puedes definir la variable 'funcion'
+# Definimos la variable 'funcion'
 funcion = st.selectbox('Selecciona una función', ('Calidad del Aire 2020', 'Contaminación Sonora'))
 
 # Si el usuario selecciona "Calidad del Aire 2020"
