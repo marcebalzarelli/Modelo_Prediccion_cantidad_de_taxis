@@ -100,7 +100,7 @@ if st.button('Realizar Predicción'):# Realizo predicción
 st.write('Este modelo utiliza Random Forest para hacer predicciones. Los datos de entrada incluyen la temperatura promedio, el día de la semana y el tipo de taxi. Los datos ingresados serán guardados en nuestra base de datos para continuar entrenando el modelo.')
 
 #Cargo CSV
-url_csv = 'https://github.com/marcebalzarelli/Modelo_Prediccion_cantidad_de_taxis/blob/main/ruta/al/tabla_combinada.csv?raw=true'
+url_csv = 'https://drive.google.com/uc?id=12OIQyeSJeBjJhEiWR0VcChuIds3bGzhe'
 
 try:
     df = pd.read_csv(url_csv)
@@ -141,13 +141,6 @@ with col2:
     fig_scatter = px.scatter(df, x='avg_temperature', y='Viajes_por_dia', color='DiaSemana',
                              labels={'avg_temperature': 'Temperatura Promedio', 'Viajes_por_dia': 'Cantidad de Viajes'})
     st.plotly_chart(fig_scatter, use_container_width=True)
-
-# Gráfico de barras apiladas para tipos de taxi "green" y "yellow"
-st.title('Cantidad de Viajes por Tipo de Taxi')
-fig_stacked_bar = px.bar(df, x='DiaSemana', y='Viajes_por_dia', color='Tipo_de_Taxi',
-                         labels={'DiaSemana': 'Día de la Semana', 'Viajes_por_dia': 'Cantidad de Viajes'},
-                         barmode='group')
-st.plotly_chart(fig_stacked_bar, use_container_width=True)
 
 st.write('Hecho por [Marcela Balzarelli, Pablo Barchiesi, Jorgelina Ramos, Michael Martinez]')# Texto de pie
 
