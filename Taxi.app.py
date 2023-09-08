@@ -62,15 +62,18 @@ st.write('Este modelo utiliza Random Forest para hacer predicciones. Los datos d
 
 # Cargo CSV
 url_csv1 = 'https://drive.google.com/uc?id=1VaDQnnVOlJ3afBWq5URA02ZdNRTFLDYT'#Calidad del aire
-url_csv2 = 'https://drive.google.com/uc?id=11FdcPrTUIUugGAfzuo5gNcBRaV82r8Nx'#Cotaminación sonora
+url_csv2 = 'https://drive.google.com/uc?id=16WANdrNvUXY3rJIlDDTRFfmRvnnx0gmc'#Cotaminación sonora
 
-@st.cache 
+@st.cache_data
 def load_data(url):
     data = pd.read_csv(url)
     return data
 
+
 df1 = load_data(url_csv1)
 df2 = load_data(url_csv2)
+
+df2['fecha'] = pd.to_datetime(df2['fecha'])
 
 
 st.title('SonorAirAPI')
